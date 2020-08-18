@@ -1,5 +1,10 @@
 const { Sequelize, DataTypes } = require("sequelize");
-const sequelize = new Sequelize("postgres::memory:");
+const sequelize = new Sequelize(
+  "postgres://postgres:ny339383@localhost:5432/online_catalogue",
+  {
+    dialect: "postgres",
+  }
+);
 
 const Item = sequelize.define("Item", {
   name: {

@@ -18,7 +18,6 @@ exports.createItem = async (data) => {
     imageUrl: "test url",
   });
 
-  console.log(item);
   return item;
 };
 
