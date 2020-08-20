@@ -5,8 +5,6 @@ const responseTime = require("response-time");
 const { Sequelize } = require("sequelize");
 const app = express();
 
-const logger = require('./utils/logger');
-
 const itemApi = require("./api/item");
 
 dotenv.config({ path: "./config/.env" });
@@ -27,10 +25,8 @@ const sequelize = new Sequelize(
   }
 })();
 
-logger.info('test logg');
-
 app.set("view engine", "ejs");
-app.use(express.static("/static"));
+app.use(express.static("public"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(responseTime());
