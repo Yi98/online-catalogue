@@ -1,6 +1,11 @@
 const Shop = require("../models/Shop");
 
-exports.getShop = () => {};
+exports.getUserShop = async (userId) => {
+  console.log(userId);
+  const shop = await Shop.findOne({ where: { UserId: userId } });
+
+  return shop;
+};
 
 exports.getShops = async () => {
   const shops = await Shop.findAll();
@@ -9,7 +14,7 @@ exports.getShops = async () => {
 };
 
 exports.createShop = async (data) => {
-  const product = await Shop.create({ name: data.name });
+  const product = await Shop.create({ name: data.name, UserId: data.UserId });
 
   return product;
 };

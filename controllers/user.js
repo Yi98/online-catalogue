@@ -1,4 +1,5 @@
 const UserService = require("../services/user");
+const SessionService = require("../services/session");
 
 exports.login = async (req, res) => {
   try {
@@ -10,6 +11,9 @@ exports.login = async (req, res) => {
     if (!isPasswordValid) {
       return res.json({ message: "Invalid email or password" });
     }
+
+    const user = await UserService.getUser(req.body.email);
+    SessionService.setUserId(req.session, user.id);
 
     res.redirect("/products");
   } catch (error) {

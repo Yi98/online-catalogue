@@ -1,6 +1,8 @@
 const { DataTypes } = require("sequelize");
 const sequelize = require("../utils/sequelize");
 
+const Shop = require("./Shop");
+
 const Product = sequelize.define("Product", {
   name: {
     type: DataTypes.STRING,
@@ -19,5 +21,8 @@ const Product = sequelize.define("Product", {
     type: DataTypes.BOOLEAN,
   },
 });
+
+Shop.hasMany(Product);
+Product.belongsTo(Shop);
 
 module.exports = Product;

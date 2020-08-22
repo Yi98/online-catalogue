@@ -15,6 +15,7 @@ exports.createProduct = async (data) => {
     price: data.price,
     imageUrl: data.image,
     showOnMenu: data.showOnMenu,
+    ShopId: data.ShopId,
   });
 
   return product;
