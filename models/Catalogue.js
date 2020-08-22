@@ -18,7 +18,7 @@
 // });
 
 // Catalogue.associate = (models) => {
-//   Catalogue.hasMany(models.Item, { as: "items" });
+//   Catalogue.hasMany(models.Product, { as: "products" });
 // };
 
 // Catalogue.associate = (models) => {

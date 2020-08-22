@@ -25,7 +25,6 @@
 
   <!--====== Style CSS ======-->
   <link rel="stylesheet" href="assets/css/style.css">
-
 </head>
 
 <body>
@@ -37,7 +36,7 @@
         <div class="row">
           <div class="col-lg-12">
             <nav class="navbar navbar-expand-lg">
-              <a class="navbar-brand" href="index.html">
+              <a class="navbar-brand" href="/index">
                 <img src="assets/images/logo.png" alt="Logo">
               </a>
               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -69,19 +68,31 @@
       </div> <!-- container -->
     </div> <!-- header navbar -->
 
-    <div id="home" class="header_hero d-lg-flex align-items-center">
+    <div id="home" class="header_hero d-lg-flex">
       <div class="container-fluid">
-        <div class="row align-items-center">
+        <div class="row">
           <div class="col-lg-2">
-            sidemenu
+            <!-- Side nav bar start -->
+            <ul class="list-unstyled">
+              <li>
+                <a href="#">Shop</a>
+              </li>
+              <li>
+                <a href="/index">Products</a>
+              </li>
+              <li>
+                <a href="#"> Works</a>
+              </li>
+            </ul>
+            </nav>
+            <!-- Side nav bar ends -->
           </div>
           <div class="col-lg-10">
-            <h3>Products</h3>
+            <h3 class="mt-5 mb-4">Products</h3>
             <div class="row">
               <div class="col-lg-3 mb-3">
                 <div class="card">
                   <img src=" assets/images/cake_tmp.jpg" class="card-img-top">
-                  <i class="lni lni-phone" style="position: absolute; right: 15px; top: 15px"></i>
                   <div class="card-body">
                     <h5 class="card-title">Red Valvet Cake</h5>
                     <h6 class="card-subtitle mb-2 text-muted">RM 8.80</h6>
@@ -90,49 +101,24 @@
                   </div>
                 </div>
               </div>
+
+              <% products.forEach(product => { %>
               <div class="col-lg-3 mb-3">
                 <div class="card">
                   <img src=" assets/images/cake_tmp.jpg" class="card-img-top">
                   <div class="card-body">
-                    <h5 class="card-title">Red Valvet Cake</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">RM 8.80</h6>
-                    <p class="card-text">Light and sweet but moist and rich in flavor, our Vanilla Almond cake is filled
-                      and frosted with our house vanilla buttercream...</p>
+                    <h5 class="card-title"><%= product.name %></h5>
+                    <h6 class="card-subtitle mb-2 text-muted">RM <%= product.price %></h6>
+                    <p class="card-text"><%= product.description %></p>
                   </div>
                 </div>
               </div>
+              <% }) %>
+
               <div class="col-lg-3 mb-3">
                 <div class="card">
-                  <img src=" assets/images/cake_tmp.jpg" class="card-img-top">
-                  <div class="card-body">
-                    <h5 class="card-title">Red Valvet Cake</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">RM 8.80</h6>
-                    <p class="card-text">Light and sweet but moist and rich in flavor, our Vanilla Almond cake is filled
-                      and frosted with our house vanilla buttercream...</p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-3  mb-3">
-                <div class="card">
-                  <img src=" assets/images/cake_tmp.jpg" class="card-img-top">
-                  <div class="card-body">
-                    <h5 class="card-title">Red Valvet Cake</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">RM 8.80</h6>
-                    <p class="card-text">Light and sweet but moist and rich in flavor, our Vanilla Almond cake is filled
-                      and frosted with our house vanilla buttercream...</p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-3 mb-3">
-                <div class="card">
-                  <div class="card-body">
-                    <h5 class="card-title">Add More</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">+</h6>
-                    <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                      Add more product
-                    </button>
-                  </div>
+                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Add more
+                    product</button>
                 </div>
               </div>
             </div>
@@ -142,45 +128,47 @@
     </div> <!-- header hero -->
 
     <!-- Modal -->
-    <div class="modal fade" id="exampleModal" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Add product</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <form>
+    <form method="POST" action="api/products">
+
+      <div class="modal fade" id="exampleModal" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Add product</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
               <div class="form-group">
                 <label for="name">Name</label>
-                <input type="text" class="form-control" id="name">
+                <input name="name" type="text" class="form-control" id="name">
               </div>
               <div class="form-group">
                 <label for="price">Price</label>
-                <input type="text" class="form-control" id="price">
+                <input name="price" type="text" class="form-control" id="price">
               </div>
               <div class="form-group">
                 <label for="description">Description</label>
-                <textarea class="form-control" id="description" rows="5"></textarea>
+                <textarea name="description" class="form-control" id="description" rows="5"></textarea>
               </div>
               <div class="form-group">
                 <label for="image">Image</label>
-                <input type="file" class="form-control-file" id="image">
+                <input name="image" type="file" class="form-control-file" id="image">
               </div>
               <div class="form-group form-check">
-                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                <label class="form-check-label" for="exampleCheck1">Don't list the product</label>
+                <input name="showOnMenu" type="checkbox" class="form-check-input" id="exampleCheck1">
+                <label class="form-check-label" for="exampleCheck1">Show on menu</label>
               </div>
-            </form>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-primary">Add product</button>
+            </div>
+            <div class="modal-footer">
+              <button class="btn btn-primary">Add product</button>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </form>
+
   </section>
 
   <!--====== HEADER PART ENDS ======-->

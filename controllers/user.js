@@ -11,7 +11,7 @@ exports.login = async (req, res) => {
       return res.json({ message: "Invalid email or password" });
     }
 
-    res.redirect("/index");
+    res.redirect("/products");
   } catch (error) {
     console.log(error);
     res.json({ message: "Failed to log in" });

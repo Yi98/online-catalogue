@@ -1,11 +1,16 @@
-// const { Sequelize, DataTypes } = require("sequelize");
-// const sequelize = new Sequelize("postgres");
+const { DataTypes } = require("sequelize");
+const sequelize = require("../utils/sequelize");
 
-// const Shop = sequelize.define("Shop", {
-//   name: {
-//     type: DataTypes.STRING,
-//     allowNull: false,
-//   },
-// });
+const User = require("./User");
 
-// module.exports = Shop;
+const Shop = sequelize.define("Shop", {
+  name: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+});
+
+User.hasMany(Shop);
+Shop.belongsTo(User);
+
+module.exports = Shop;
