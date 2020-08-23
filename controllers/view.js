@@ -1,11 +1,12 @@
 const ProductService = require("../services/product");
+const ShopService = require("../services/shop");
 
 exports.getLandingPage = (req, res) => {
   res.render("landing");
 };
 
-exports.getSignupPage = (req, res) => {
-  res.render("signup");
+exports.getAccountPage = (req, res) => {
+  res.render("account");
 };
 
 exports.getLoginPage = (req, res) => {
@@ -18,15 +19,27 @@ exports.getShopPage = (req, res) => {
 
 exports.getProductPage = async (req, res) => {
   try {
-    const products = await ProductService.getProducts();
+    const shop = await ShopService.getUserShop(req.session.userId);
+    const products = await ProductService.getProducts(shop.id);
+
     res.render("products", { products });
   } catch (error) {
     console.log(error);
   }
 };
 
-exports.getMenuPage = (req, res) => {
-  res.render("menu");
+exports.getMenuPage = async (req, res) => {
+  try {
+    const shop = await ShopService.getUserShop(req.session.userId);
+    const products = await ProductService.getProducts(shop.id);
+
+    res.render("menu", {
+      shopName: shop.name,
+      products,
+    });
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 exports.getErrorPage = (req, res) => {

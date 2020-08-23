@@ -1,7 +1,6 @@
 const express = require("express");
 const dotenv = require("dotenv");
 const responseTime = require("response-time");
-const pg = require("pg");
 const session = require("express-session");
 const pgSession = require("connect-pg-simple")(session);
 const app = express();

@@ -1,8 +1,15 @@
 const Shop = require("../models/Shop");
 
 exports.getUserShop = async (userId) => {
-  console.log(userId);
-  const shop = await Shop.findOne({ where: { UserId: userId } });
+  const shop = await Shop.findOne({
+    where: { UserId: userId },
+  });
+
+  return shop;
+};
+
+exports.getShopByName = async (name) => {
+  const shop = await Shop.findOne({ where: { name } });
 
   return shop;
 };

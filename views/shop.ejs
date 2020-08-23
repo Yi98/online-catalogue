@@ -11,20 +11,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!--====== Favicon Icon ======-->
-  <link rel="shortcut icon" href="assets/images/favicon.png" type="image/png">
+  <link rel="shortcut icon" href="../assets/images/favicon.png" type="image/png">
 
 
   <!--====== Font Awesome CSS ======-->
-  <link rel="stylesheet" href="assets/webfont/font-css/LineIcons.css">
+  <link rel="stylesheet" href="../assets/webfont/font-css/LineIcons.css">
 
   <!--====== Bootstrap CSS ======-->
-  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
 
   <!--====== Default CSS ======-->
-  <link rel="stylesheet" href="assets/css/default.css">
+  <link rel="stylesheet" href="../assets/css/default.css">
 
   <!--====== Style CSS ======-->
-  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/style.css">
 
 </head>
 
@@ -37,8 +37,8 @@
         <div class="row">
           <div class="col-lg-12">
             <nav class="navbar navbar-expand-lg">
-              <a class="navbar-brand" href="index.html">
-                <img src="assets/images/logo.png" alt="Logo">
+              <a class="navbar-brand" href="/">
+                <img src="../assets/images/logo.png" alt="Logo">
               </a>
               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -49,15 +49,6 @@
 
               <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
                 <ul id="nav" class="navbar-nav ml-auto">
-                  <li class="nav-item active">
-                    <a class="page-scroll" href="#home">Home</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="page-scroll" href="#features">Features</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="page-scroll" href="#about">About</a>
-                  </li>
                   <li class="nav-item">
                     <a class="page-scroll" href="/login">Log In</a>
                   </li>
@@ -69,29 +60,28 @@
       </div> <!-- container -->
     </div> <!-- header navbar -->
 
-    <div id="home" class="header_hero d-lg-flex align-items-center">
+    <div id="home" class="header_hero d-lg-flex">
       <div class="container">
-        <div class="row align-items-center">
-          <div class="col-lg-5">
-            <h3 class="pb-3">What's your restaurant's name?</h3>
+        <div class="row">
+          <div class="col-lg-5 mx-auto px-4">
+            <p class="pb-1">Step <strong>2</strong> of <strong>2</strong></p>
+            <h3 class="pb-3">Create a restaurant.</h3>
             <form action="/api/shops" method="POST">
               <div class="form-group">
+                <label for="email">Restaurant's name</label>
                 <input name="name" type="text" class="form-control" id="name">
               </div>
-              <button type="submit" class="main-btn">Next</button>
+              <div class="form-group">
+                <label for="address">Restaurant's address</label>
+                <input name="address" type="text" class="form-control" id="address">
+              </div>
+              <button type="submit" class="btn btn-primary w-100 continue-btn">Continue</button>
             </form>
           </div>
 
+
         </div> <!-- row -->
       </div> <!-- container -->
-      <div class="header_shape bg_cover d-none d-lg-block"
-        style="background-image: url(assets/images/header_shape.png)"></div> <!-- header shape -->
-      <div class="header_image d-flex align-items-center">
-        <div class="image">
-          <img src="assets/images/qr_code.png" alt="header image">
-          <img src="assets/images/dots.svg" alt="dots" class="dots">
-        </div> <!-- image -->
-      </div> <!-- header image -->
     </div> <!-- header hero -->
   </section>
 
@@ -102,20 +92,20 @@
 
 
   <!--====== Jquery js ======-->
-  <script src="assets/js/vendor/jquery-1.12.4.min.js"></script>
-  <script src="assets/js/vendor/modernizr-3.7.1.min.js"></script>
+  <script src="../assets/js/vendor/jquery-1.12.4.min.js"></script>
+  <script src="../assets/js/vendor/modernizr-3.7.1.min.js"></script>
 
   <!--====== Bootstrap js ======-->
-  <script src="assets/js/popper.min.js"></script>
-  <script src="assets/js/bootstrap.min.js"></script>
+  <script src="../assets/js/popper.min.js"></script>
+  <script src="../assets/js/bootstrap.min.js"></script>
 
 
   <!--====== Scrolling Nav js ======-->
-  <script src="assets/js/jquery.easing.min.js"></script>
-  <script src="assets/js/scrolling-nav.js"></script>
+  <script src="../assets/js/jquery.easing.min.js"></script>
+  <script src="../assets/js/scrolling-nav.js"></script>
 
   <!--====== Main js ======-->
-  <script src="assets/js/main.js"></script>
+  <script src="../assets/js/main.js"></script>
 
 </body>
 

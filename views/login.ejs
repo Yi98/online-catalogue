@@ -37,43 +37,20 @@
         <div class="row">
           <div class="col-lg-12">
             <nav class="navbar navbar-expand-lg">
-              <a class="navbar-brand" href="index.html">
+              <a class="navbar-brand" href="/">
                 <img src="assets/images/logo.png" alt="Logo">
               </a>
-              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="toggler-icon"></span>
-                <span class="toggler-icon"></span>
-                <span class="toggler-icon"></span>
-              </button>
-
-              <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
-                <ul id="nav" class="navbar-nav ml-auto">
-                  <li class="nav-item active">
-                    <a class="page-scroll" href="#home">Home</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="page-scroll" href="#features">Features</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="page-scroll" href="#about">About</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="page-scroll" href="/login">Log In</a>
-                  </li>
-                </ul>
-              </div> <!-- navbar collapse -->
             </nav> <!-- navbar -->
           </div>
         </div> <!-- row -->
       </div> <!-- container -->
     </div> <!-- header navbar -->
 
-    <div id="home" class="header_hero d-lg-flex align-items-center">
+    <div id="home" class="header_hero d-lg-flex">
       <div class="container">
-        <div class="row align-items-center">
-          <div class="col-lg-5">
-            <h3>Log In</h3>
+        <div class="row">
+          <div class="col-lg-5 mx-auto px-4">
+            <h3>Sign In</h3>
             <form action="/api/users/login" method="POST">
               <div class="form-group">
                 <label for="email">Email address</label>
@@ -85,22 +62,14 @@
               </div>
               <div class="form-group form-check">
                 <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                <label class="form-check-label" for="exampleCheck1">Remember me</label>
               </div>
-              <button type="submit" class="main-btn">Log In</button>
+              <button type="submit" class="btn btn-primary w-100 continue-btn">Sign In</button>
+              <p class="mt-4">New to SenangScan? <a href="/signup/account">Sign up now</a>.</p>
             </form>
           </div>
-
         </div> <!-- row -->
       </div> <!-- container -->
-      <div class="header_shape bg_cover d-none d-lg-block"
-        style="background-image: url(assets/images/header_shape.png)"></div> <!-- header shape -->
-      <div class="header_image d-flex align-items-center">
-        <div class="image">
-          <img src="assets/images/qr_code.png" alt="header image">
-          <img src="assets/images/dots.svg" alt="dots" class="dots">
-        </div> <!-- image -->
-      </div> <!-- header image -->
     </div> <!-- header hero -->
   </section>
 

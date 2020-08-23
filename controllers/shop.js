@@ -7,7 +7,7 @@ exports.createShop = async (req, res) => {
 
     const shop = await ShopService.createShop(req.body);
 
-    res.redirect("/shop");
+    res.redirect("/products");
   } catch (error) {
     console.log(error);
 

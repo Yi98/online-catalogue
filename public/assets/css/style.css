@@ -1298,3 +1298,27 @@ p.form-message.success.form-message.error, p.form-message.error.form-message.err
 }
 
 /*# sourceMappingURL=style.css.map */
+
+/* Custom style */
+
+.continue-btn {
+  background-color: #1E75D9;
+  border-radius: 0;
+  height: 45px;
+}
+
+.header_hero_2 {
+  position: relative;
+  z-index: 5;
+  background-position: bottom center;
+  padding-top: 70px;
+  height: 800px;
+}
+
+.shop-name {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+}

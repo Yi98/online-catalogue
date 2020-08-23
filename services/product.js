@@ -2,8 +2,8 @@ const Product = require("../models/Product");
 
 exports.getProduct = () => {};
 
-exports.getProducts = async () => {
-  const products = await Product.findAll();
+exports.getProducts = async (shopId) => {
+  const products = await Product.findAll({ where: { ShopId: shopId } });
 
   return products;
 };

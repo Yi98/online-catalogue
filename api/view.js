@@ -5,11 +5,11 @@ const viewController = require("../controllers/view");
 
 router.get("/", viewController.getLandingPage);
 
-router.get("/signup", viewController.getSignupPage);
+router.get("/signup/account", viewController.getAccountPage);
+
+router.get("/signup/shop", viewController.getShopPage);
 
 router.get("/login", viewController.getLoginPage);
-
-router.get("/shop", viewController.getShopPage);
 
 router.get("/products", viewController.getProductPage);
 
