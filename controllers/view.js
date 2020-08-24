@@ -30,7 +30,7 @@ exports.getProductPage = async (req, res) => {
 
 exports.getMenuPage = async (req, res) => {
   try {
-    const shop = await ShopService.getUserShop(req.session.userId);
+    const shop = await ShopService.getUserShop(req.params.shopId);
     const products = await ProductService.getProducts(shop.id);
 
     res.render("menu", {

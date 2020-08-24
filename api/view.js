@@ -13,7 +13,7 @@ router.get("/login", viewController.getLoginPage);
 
 router.get("/products", viewController.getProductPage);
 
-router.get("/menu", viewController.getMenuPage);
+router.get("/menu/:shopId", viewController.getMenuPage);
 
 router.get("*", viewController.getErrorPage);
 

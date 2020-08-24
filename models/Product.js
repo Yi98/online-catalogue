@@ -8,17 +8,11 @@ const Product = sequelize.define("Product", {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  description: {
-    type: DataTypes.STRING,
-  },
   price: {
     type: DataTypes.FLOAT,
   },
   imageUrl: {
     type: DataTypes.STRING,
-  },
-  showOnMenu: {
-    type: DataTypes.BOOLEAN,
   },
 });
 

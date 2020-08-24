@@ -37,7 +37,10 @@ exports.signup = async (req, res) => {
       password: password,
     });
 
-    res.redirect("/login");
+    const user = await UserService.getUser(req.body.email);
+    SessionService.setUserId(req.session, user.id);
+
+    res.redirect("/signup/shop");
   } catch (error) {
     console.log(error);
     res.json({ message: "Failed to sign up" });

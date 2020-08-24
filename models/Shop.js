@@ -8,6 +8,9 @@ const Shop = sequelize.define("Shop", {
     type: DataTypes.STRING,
     allowNull: false,
   },
+  address: {
+    type: DataTypes.STRING,
+  },
 });
 
 User.hasMany(Shop);

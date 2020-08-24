@@ -11,10 +11,8 @@ exports.getProducts = async (shopId) => {
 exports.createProduct = async (data) => {
   const product = await Product.create({
     name: data.name,
-    description: data.description,
     price: data.price,
     imageUrl: data.image,
-    showOnMenu: data.showOnMenu,
     ShopId: data.ShopId,
   });
 
