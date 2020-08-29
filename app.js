@@ -35,10 +35,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(responseTime());
 
-app.use("/", viewApi);
+app.use('/qrcode', express.static(__dirname + '/node_modules/qrcode/build'));
 app.use("/api/products", productApi);
 app.use("/api/users", userApi);
 app.use("/api/shops", shopApi);
+app.use("/", viewApi);
 
 app.listen(process.env.PORT, () =>
   console.log(`Server running on port ${process.env.PORT}`)

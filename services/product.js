@@ -3,7 +3,10 @@ const Product = require("../models/Product");
 exports.getProduct = () => {};
 
 exports.getProducts = async (shopId) => {
-  const products = await Product.findAll({ where: { ShopId: shopId } });
+  const products = await Product.findAll({
+    where: { ShopId: shopId },
+    order: [["createdAt"]],
+  });
 
   return products;
 };
@@ -19,6 +22,18 @@ exports.createProduct = async (data) => {
   return product;
 };
 
-exports.updateProduct = () => {};
+exports.editProduct = async (data) => {
+  const updatedProduct = await Product.update(data, {
+    where: {
+      id: data.id,
+    },
+  });
 
-exports.deleteProduct = () => {};
+  return updatedProduct;
+};
+
+exports.deleteProduct = async (id) => {
+  const deletedProduct = await Product.destroy({ where: { id } });
+
+  return deletedProduct;
+};
