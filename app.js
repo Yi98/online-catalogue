@@ -22,10 +22,10 @@ var sess = {
   cookie: { maxAge: 30 * 24 * 60 * 60 * 1000 },
 };
 
-if (process.env.NODE_ENV === "production") {
-  app.set("trust proxy", 1); // trust first proxy
-  sess.cookie.secure = true; // serve secure cookies
-}
+// if (process.env.NODE_ENV === "production") {
+//   app.set("trust proxy", 1); // trust first proxy
+//   sess.cookie.secure = true; // serve secure cookies
+// }
 
 app.set("view engine", "ejs");
 
