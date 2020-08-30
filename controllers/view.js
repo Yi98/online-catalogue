@@ -22,7 +22,11 @@ exports.getProductPage = async (req, res) => {
     const shop = await ShopService.getUserShop(req.session.userId);
     const products = await ProductService.getProducts(shop.id);
 
-    res.render("products", { products });
+    res.render("products", {
+      products,
+      shopId: shop.id,
+      domain: process.env.DOMAIN_URL,
+    });
   } catch (error) {
     console.log(error);
   }

@@ -81,8 +81,9 @@
       }
     };
 
-    const onShowQr = () => {
-      QRCode.toCanvas(document.getElementById('qrcode'), 'localhost:3000/menu/1', {
+    const onShowQr = (domain, shopId) => {
+      console.log(domain);
+      QRCode.toCanvas(document.getElementById('qrcode'), `${domain}/menu/${shopId}`, {
         width: 300,
       }, function (error) {
         if (error) console.error(error);
@@ -92,7 +93,7 @@
     const onDownloadQr = () => {
       var link = document.createElement('a');
       link.download = 'qrcode.png';
-      link.href = document.getElementById('qrcode').toDataURL()
+      link.href = document.getElementById('qrcode').toDataURL();
       link.click();
     }
   </script>
@@ -137,7 +138,7 @@
             <h4 class="mb-3">QR Code</h4>
             <dov class="row">
               <div class="col-lg-3 col-12">
-                <button class="btn btn-primary w-100" onclick="onShowQr()" data-toggle="modal"
+                <button class="btn btn-primary w-100" onclick="onShowQr('<%= domain %>', '<%= shopId %>')" data-toggle="modal"
                   data-target="#qrcodeModal">Show QR Code</button>
               </div>
             </dov>
@@ -148,7 +149,7 @@
               <% products.forEach(product => { %>
               <div class="col-lg-3 mb-3">
                 <div class="card">
-                  <img src=" assets/images/cake_tmp.jpg" class="card-img-top">
+                  <img src="assets/images/cake_tmp.jpg" class="card-img-top">
                   <div class="card-body">
                     <h5 class="card-title"><%= product.name %></h5>
                     <h6 class="card-subtitle mb-2 text-muted mb-4">RM <%= product.price %></h6>
