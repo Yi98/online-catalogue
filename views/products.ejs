@@ -82,7 +82,6 @@
     };
 
     const onShowQr = (domain, shopId) => {
-      console.log(domain);
       QRCode.toCanvas(document.getElementById('qrcode'), `${domain}/menu/${shopId}`, {
         width: 300,
       }, function (error) {
