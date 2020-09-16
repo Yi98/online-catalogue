@@ -6,7 +6,8 @@ exports.createProduct = async (req, res) => {
     const shop = await ShopService.getUserShop(req.session.userId);
 
     req.body.ShopId = shop.id;
-    const product = await ProductService.createProduct(req.body);
+
+    await ProductService.createProduct(req.body);
 
     res.redirect("/products");
   } catch (error) {

@@ -26,6 +26,7 @@ exports.getProductPage = async (req, res) => {
       products,
       shopId: shop.id,
       domain: process.env.DOMAIN_URL,
+      userId: req.session.userId,
     });
   } catch (error) {
     console.log(error);

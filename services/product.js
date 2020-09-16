@@ -15,7 +15,7 @@ exports.createProduct = async (data) => {
   const product = await Product.create({
     name: data.name,
     price: data.price,
-    imageUrl: data.image,
+    imageUrl: data.imageUrl,
     ShopId: data.ShopId,
   });
 
