@@ -1,4 +1,4 @@
-const Shop = require("../models/Shop");
+const { Shop } = require("../utils/sequelize");
 
 exports.getShop = async (id) => {
   const shop = await Shop.findOne({ where: { id } });

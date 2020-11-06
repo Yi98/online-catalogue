@@ -1,6 +1,6 @@
 const bcrypt = require("bcrypt");
 
-const User = require("../models/User");
+const { User } = require("../utils/sequelize");
 
 exports.getUser = async (email) => {
   const user = await User.findOne({ where: { email: email } });
@@ -21,9 +21,7 @@ exports.checkPassword = async (data) => {
   const user = await this.getUser(data.email);
   let isValid = null;
 
-  if (user) {
-    isValid = await bcrypt.compare(data.password, user.password);
-  }
+  if (user) isValid = await bcrypt.compare(data.password, user.password);
 
   return isValid;
 };

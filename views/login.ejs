@@ -51,17 +51,20 @@
         <div class="row pt-5">
           <div class="col-lg-5 mx-auto px-4">
             <h3>Sign In</h3>
+            <%if (invalidCridential) { %>
+            <p class="text-danger pb-2">Invalid email or password.</p>
+            <% } %>
             <form action="/api/users/login" method="POST">
               <div class="form-group">
                 <label for="email">Email address</label>
-                <input name="email" type="email" class="form-control" id="email">
+                <input name="email" type="email" class="form-control" id="email" required="required">
               </div>
               <div class="form-group">
                 <label for="password">Password</label>
-                <input name="password" type="password" class="form-control" id="password">
+                <input name="password" type="password" class="form-control" id="password" required="required">
               </div>
               <button type="submit" class="btn btn-primary w-100 continue-btn">Sign In</button>
-              <!-- <p class="mt-4">New to SenangScan? <a href="/signup/account">Sign up now</a>.</p> -->
+              <p class="mt-4">New to SenangScan? <a href="/signup/account">Sign up now</a>.</p>
             </form>
           </div>
         </div> <!-- row -->
